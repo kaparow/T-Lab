@@ -20,7 +20,7 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
-    <ProjectGuid>{434B791F-2785-47E0-90A9-1A6E32E1CF5E}</ProjectGuid>
+    <ProjectGuid>{4A32FE65-D1E5-463B-8B82-9493E6E51035}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
@@ -122,9 +122,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="ConsoleGeneral.cpp" />
     <ClCompile Include="CS.cpp" />
     <ClCompile Include="Function.cpp" />
+    <ClCompile Include="lab3kaparov.cpp" />
     <ClCompile Include="Pipe.cpp" />
   </ItemGroup>
   <ItemGroup>
