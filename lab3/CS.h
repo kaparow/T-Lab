@@ -1,37 +1,32 @@
 #pragma once
-
-#include "header.h"
-
-
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <vector>
+#include <float.h>
+#include <unordered_set>
+using namespace std;
 class CS
 {
-    int number_of_workshops;
-    int effectiveness;
-
-
 public:
+      static int max_idd;
+      CS() {
+          idcs = max_idd++;
+      }
+      friend istream& operator>> (istream& in, CS& p);
+      friend ostream& operator<< (ostream& out, CS& cs);
+      void save_cs(ofstream& file);
+      void edit_cs();
+      void load_cs(ifstream& file);
+      int get_id() { return idcs; }
+      double get_unused() { return (((double)workshop - (double)working_workshop) / (double)workshop) * 100; }
+      string name = "";
+      int getwork() { return workshop; };
+      static int GetMaxId() { return max_idd; };
 
-    int ID;
-    inline static int MaxId = 1000;
-    std::string name;
-    int workshops_in_operation;
 
-    CS();
-    CS(std::string name, int number_of_workshops, int workshops_in_operation, int effectiveness);
-
-    void InputInfo();
-
-    void PrintInfo();
-
-    void Edit();
-
-    void Edit(int active);
-
-    void SetMaxId(int MaxId) { this->MaxId = MaxId; };
-    int GetMaxId() { return MaxId; };
-
-    int GetID() { return ID; };
-
-    friend std::ofstream& operator << (std::ofstream& out, const CS& cs);
-    friend std::ifstream& operator >> (std::ifstream& file, CS& cs);
+private:
+    int  workshop, working_workshop, idcs;
+    double effectiveness;
+    //static int max_idd;
 };

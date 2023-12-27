@@ -1,38 +1,35 @@
 #pragma once
-#include "header.h"
-
-
-
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <vector>
+#include <float.h>
+#include <unordered_map>
+#include <unordered_set>
+using namespace std;
 class Pipe
 {
-    float length;
-    int diameter;
-
 
 public:
+    static int max_id;
+    string name = "";
+    bool status = 0;
+    Pipe() {
+        idp = max_id++;
+    }
+    friend istream& operator>> (istream& in, Pipe& p);
+    friend ostream& operator<< (ostream& out, Pipe& p);
+    void edit_Pipe();
+    void save_pipe(ofstream& file);
+    void load_pipe(ifstream& file);
 
-    int ID;
-    inline static int MaxId = 0;
-    std::string name;
-    bool in_repairing;
+    static int GetMaxId() { return max_id; };
+    int get_id() { return idp; }
+    double get_dia() { return diameter; }
 
-    Pipe();
-    Pipe(const std::string name, const float length, const int diameter, const bool in_repairing);
+private:
+    double length = 0, diameter = 0;
+    int idp = 0;
+    
 
-
-    void InputInfo();
-
-    void PrintInfo();
-
-    void Edit();
-
-    void Edit(int status);
-
-    void SetMaxId(int MaxId) { this->MaxId = MaxId; };
-    int GetMaxId() { return MaxId; };
-
-    int GetID() { return ID; };
-
-    friend std::ofstream& operator << (std::ofstream& out, const Pipe& pipe);
-    friend std::ifstream& operator >> (std::ifstream& file, Pipe& pipe);
 };
