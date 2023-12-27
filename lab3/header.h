@@ -96,8 +96,7 @@ inline void findCS(){
         cout << "КС не найдена" << endl;
 }
 
-inline void CreateGTsys(){
-    System network;
+inline void CreateGTsys(System& network){
     cout << "1.Соеднить 2.Разъединить" << endl;
     int choise = correctnumber(1, 2);
     cout << network.cs_group.size();

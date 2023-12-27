@@ -40,6 +40,7 @@ int main()
             CS cs;
             cin >> cs;
             network.cs_group.insert({ cs.get_id(), cs });
+            cout << network.cs_group.size();
             break;
         }
         case 3: {
@@ -71,7 +72,7 @@ int main()
             break;
         }
         case 10: {
-            CreateGTsys();
+            CreateGTsys(network);
             break;
         }
         case 11: {
